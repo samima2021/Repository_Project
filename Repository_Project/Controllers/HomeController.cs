@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Repository_Project.Models;
+using SCA.BLR.Interfaces;
+using SCA.BLR.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,27 +14,55 @@ namespace Repository_Project.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IStudentBLR _studentBLR;
+        public HomeController(IStudentBLR stuBLR)
         {
-            _logger = logger;
+             this._studentBLR = stuBLR;
         }
-
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<StudentDTO> model = _studentBLR.GetAllStudents().ToList();
+            return View("Index",model);
         }
-
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult AddEditStudent(int? id)
         {
-            return View();
+            StudentDTO model = new StudentDTO();
+            if (id.HasValue)
+            {
+                model = _studentBLR.GetStudent((int)id);
+            }
+
+            return PartialView("_AddEditStudent",model);
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult AddEditStudent(StudentDTO model)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _studentBLR.SaveStudent(model);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult DeleteStudent(int id)
+        {
+            StudentDTO model = _studentBLR.GetStudent(id);
+            return PartialView("_DeteleStudent",model);
+        }
+        [HttpPost]
+        public IActionResult DeleteStudent(int id,FormCollection form)
+        {
+            _studentBLR.DeleteStudent(id);
+            return RedirectToAction("Index");
         }
     }
 }

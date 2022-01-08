@@ -17,10 +17,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SCA.DAL\SCA.DAL.csproj" />
+    <ProjectReference Include="..\SCA.BLR\SCA.BLR.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SCA.Data\SCA.Data.csproj" />
+    <ProjectReference Include="..\SCA.DAL\SCA.DAL.csproj" />
   </ItemGroup>
 
 </Project>

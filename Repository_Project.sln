@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCA.Data", "SCA.Data\SCA.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCA.DAL", "SCA.DAL\SCA.DAL.csproj", "{59A319A8-0FA8-4630-AB1C-90A41E0AD0FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCA.BLR", "SCA.BLR\SCA.BLR.csproj", "{E9991E0D-E53A-45C0-AF76-2C6206D9088F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{59A319A8-0FA8-4630-AB1C-90A41E0AD0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59A319A8-0FA8-4630-AB1C-90A41E0AD0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59A319A8-0FA8-4630-AB1C-90A41E0AD0FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9991E0D-E53A-45C0-AF76-2C6206D9088F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9991E0D-E53A-45C0-AF76-2C6206D9088F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9991E0D-E53A-45C0-AF76-2C6206D9088F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9991E0D-E53A-45C0-AF76-2C6206D9088F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

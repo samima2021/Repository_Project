@@ -4,6 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SCA.BLR.Implementation;
+using SCA.BLR.Interfaces;
+using SCA.DAL.Implementation;
+using SCA.DAL.Interfaces;
 using SCA.Data.Context;
 using System;
 using System.Collections.Generic;
@@ -26,6 +30,8 @@ namespace Repository_Project
         {
             services.AddControllersWithViews();
             services.AddDbContext<ApplicationContext>(x => x.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IStudentBLR, StudentBLR>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
