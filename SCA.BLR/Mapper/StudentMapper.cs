@@ -17,26 +17,28 @@ namespace SCA.BLR.Mapper
             stu.FirstName = dto.FirstName;
             stu.LastName = dto.LastName;
             stu.Email = dto.Email;
-            stu.EmrollmentNo = dto.EmrollmentNo;    
-            stu.AddedDate = dto.AddedDate;  
+            stu.EmrollmentNo = dto.EmrollmentNo;
+            stu.AddedDate = dto.AddedDate;
             stu.ModifiedDate = dto.ModifiedDate;
             stu.IPAddress = dto.IPAddress;
             return stu;
 
         }
-       public StudentDTO ModelToDto(Student Model)
+        public StudentDTO ModelToDto(Student model)
         {
             StudentDTO dto = new StudentDTO();
-            dto.Id = Model.Id;
-            dto.FirstName = Model.FirstName;
-            dto.LastName = Model.LastName;
-            dto.Email = Model.Email;
-            dto.EmrollmentNo =Model.EmrollmentNo;
-            dto.AddedDate = Model.AddedDate;
-            dto.ModifiedDate = Model.ModifiedDate;
-            dto.IPAddress = Model.IPAddress;
+            dto.Id = model.Id;
+            dto.FirstName = model.FirstName;
+            dto.LastName = model.LastName;
+            dto.Name = model.FirstName + " " + model.LastName;
+            dto.Email = model.Email;
+            dto.EmrollmentNo = model.EmrollmentNo;
+            dto.AddedDate = model.AddedDate;
+            dto.ModifiedDate = model.ModifiedDate;
+            dto.IPAddress = model.IPAddress;
             return dto;
+
         }
-        
+
     }
 }

@@ -50,6 +50,7 @@ namespace Repository_Project.Controllers
             {
                 throw ex;
             }
+
             return RedirectToAction("Index");
         }
         [HttpGet]

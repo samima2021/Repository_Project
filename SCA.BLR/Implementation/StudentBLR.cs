@@ -18,7 +18,7 @@ namespace SCA.BLR.Implementation
         public StudentBLR(IStudentRepository studentRepo)
         {
             this._studentRepo = studentRepo;
-
+            this._studentMapper = new StudentMapper();
         }
         public void DeleteStudent(int id)
         {
@@ -43,16 +43,34 @@ namespace SCA.BLR.Implementation
             return studentOutput;
         }
 
-        public void SaveStudent(StudentDTO studentVM)
+        //public void SaveStudent(StudentDTO studentVM)
+        //{
+
+
+        //    Student stu = _studentMapper.DtoToModel(studentVM);
+        //    if (studentVM.Id > 0)
+        //    {
+        //        _studentRepo.UpdateStudent(stu);
+        //    }
+        //    else
+        //    {
+        //        _studentRepo.SaveStudent(stu);
+        //    }
+        //    _studentRepo.UpdateContext();
+
+        //}
+        public void SaveStudent(StudentDTO ABC)
         {
-            Student stu =_studentMapper.DtoToModel(studentVM);
-            if (studentVM.Id > 0)
+            Student stu = _studentMapper.DtoToModel(ABC);
+            if (ABC.Id>0)
             {
                 _studentRepo.UpdateStudent(stu);
+
             }
             else
             {
                 _studentRepo.SaveStudent(stu);
+
             }
             _studentRepo.UpdateContext();
         }
